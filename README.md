@@ -128,5 +128,11 @@ Creating data class mapper with Mapstruct and Lombok
 - Check the code that almost covers the commonly use mapping when working with projects.
 - I already do research for mapstruct and lombok to work together so copying the pom.xml structure should be fine and also works for you.
 
+# How does mapstruct works behind the scene
+- Mapstruct uses the annotations you write in mapper class to get the metadata and uses reflection api to create the implementation class on build time. Thats why you can specify in @Mapping the field that will be map together and also use source.fieldName in source attribute of @Mapping the se as the targetFieldName.
+
+# Where does the generated implementation of mapstruct resides.
+- in you project structure target | generated-sources | annotation | groupid and artifactid folder | mapper
+
 # Mapstruct plugin
 - IntelliJ: https://plugins.jetbrains.com/plugin/10036-mapstruct-support
