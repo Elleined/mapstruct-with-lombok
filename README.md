@@ -11,15 +11,15 @@ Creating data class mapper with Mapstruct and Lombok
 ### `@Mapper`
 - Used to mark the class as mapper class that will contain the mapping between dto to model and vice versa.  
   ##### `@Mapper attributes`
-  - ***_**componentModel**_***: is used when using spring boot to make the mapper class avaialable in spring container.
+  - ***_**componentModel**_***: Used when using spring boot to make the mapper class avaialable in spring container.
   ```
     @Mapper(componentModel="spring")
   ```
-  - ***_**uses**_***: is used when you have another mapper class that is needed when mapping. mapstruct will automatically detect it when you specify it as source.
+  - ***_**uses**_***: Used when you need another mapper class in you mapping method.
   ```
     @Mapper(componentModel="spring", uses={OtherMapper.class})
   ```
-  - ***_**imports**_***: is used when you have imports you need for your mappings. can be anything.
+  - ***_**imports**_***: Used when you have imports you need for your mappings. can be anything.
   ```
     @Mapper(componentModel="spring", uses={OtherMapper.class}, imports={SomeClassYouNeedAsImport.class})
   ```
@@ -59,6 +59,7 @@ Creating data class mapper with Mapstruct and Lombok
 ### `@Context`
 - Used to add some context in mapping method. You can use many @Context annotation in one mapping method. You can use this if the mapping method requires additional information that source cannot contain.
   ```
+    @Mapping(target="targetFieldName", expression="java(someObject)")
     public abstract Target foo(Source source, @Context SomeObject someObject);
   ```
 
@@ -70,17 +71,17 @@ Creating data class mapper with Mapstruct and Lombok
 
       // The signature of method annotated with @BeforeMapping must be
       @BeforeMapping
-      protected void bar(Source source) { // Execute some code before the mapping happens}
+      protected void bar(Source source) { // Execute some code before the mapping happens }
 
       // Basically the method parameters must be the same.
-      // The return can be the target instead of void.
+      // The return can also be the target instead of void.
   ```  
   
 ### `@AfterMapping`
 - Use to execute code after the mapping method. // Works almost the same as @BeforeMapping
 
 ### `@MappingTarget`
-- Typically use in @BeforeMapping and @AfterMapping to get more flexibility allowing you to have reference in Target and Source object.
+- Typically use in @BeforeMapping and @AfterMapping to get more flexibility allowing you to have reference both in Target and Source object.
   ```
     @BeforeMapping or @AfterMapping
     protected void bar(Source source, @MappingTarget Target target) { // Execute some code before the mapping happens }
@@ -97,3 +98,6 @@ Creating data class mapper with Mapstruct and Lombok
 `@EqualsAndHashCode`
 `@Setter`
 `@Getter`
+
+# Mapstruct plugin
+- IntelliJ: https://plugins.jetbrains.com/plugin/10036-mapstruct-support
