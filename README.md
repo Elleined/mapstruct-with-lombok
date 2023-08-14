@@ -88,16 +88,45 @@ Creating data class mapper with Mapstruct and Lombok
   ```  
   
 # Lombok annotations
-`@Data`
-`@AllArgsConstructors`
-`@NoArgsConstructor`
-`@RequiredArgsConstructor`
-`@Value`
-`@Builder`
-`@ToString`
-`@EqualsAndHashCode`
-`@Setter`
-`@Getter`
+### `@Data`
+- Use to generate getters, setters, toString, required args constructor, equals and hashCode.
+
+### `@AllArgsConstructors`
+- Use to generate all argument constructor.
+
+### `@NoArgsConstructor`
+- Used to generate no argument constructor.
+
+### `@RequiredArgsConstructor`
+- Use to generate a constructor for field that annotated with @NonNull and final variables.
+  
+### `@Value`
+- Used to make the annotated class final and all the instance variable private and final.
+  
+### `@Builder`
+- Use to generate builder pattern in annotated class.
+  
+### `@ToString`
+- Used to generate toString. !Caution do not use this with entity class when working with spring data jpa.
+  
+### `@EqualsAndHashCode`
+- Used to generate equals and hashcode. !Caution do not use this with entity class when working with spring data jpa.
+  
+### `@Setter`
+- Usage scope: Class level, Field level
+- Used to generate setters for all instance variable when use as class level and only generate for himself if used in field level.
+- Field level annotation overrides Class level annotation.
+
+### `@Getter`
+- Usage scope: Class level, Field level
+- Used to generate getters for all instance variable when use as class level and only generate for himself if used in field level.
+- Field level annotation overrides Class level annotation.
+  
+
+# How to use MapStruct with Lombok
+- Check the pom.xml file structure and always check for new versions.
+- Check the code that almost covers the commonly use mapping when working with projects.
+- I already do research for mapstruct and lombok to work together so copying the pom.xml structure should be fine and also works for you.
 
 # Mapstruct plugin
 - IntelliJ: https://plugins.jetbrains.com/plugin/10036-mapstruct-support
