@@ -136,3 +136,6 @@ Creating data class mapper with Mapstruct and Lombok
 
 # Mapstruct plugin
 - IntelliJ: https://plugins.jetbrains.com/plugin/10036-mapstruct-support
+
+# Useful Links
+- [Mapper can't call the @AfterNapping and @BeforeMapping annotated method](https://github.com/mapstruct/mapstruct/issues/2848)
